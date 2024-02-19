@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KongerHub Support</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/1176964545567277156/1208570306176884797/icons8-technical-support-64.png?ex=65e3c3cf&is=65d14ecf&hm=fb1ffa4d64669be3cd7acac16c43ab17f5e28af23205eb9d5ff9a24f031d3fa4&">
+
+    <style>
+        body {
+            font-family: 'GothamSSm', sans-serif;
+            background-color: #181818;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #content {
+            max-width: 600px;
+            padding: 30px;
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            border: 1px solid #4CAF50;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #535353;
+            color: #ffffff;
+            font-size: 16px;
+            font-family: 'GothamSSm', sans-serif;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #a0a0a0;
+        }
+
+        button, input[type="reset"] {
+            width: 48%;
+            padding: 15px;
+            height: 50px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover, input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+
+        button {
+            margin-right: 4%;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content">
+        <h1>Contact KongerHub Staff Team</h1>
+
+        <p>Feel free to send us an if you're experiencing issue are just have questions!</p>
+
+        <form>
+            <label for="discordTag">Discord Tag:</label>
+            <input type="text" id="discordTag" placeholder="Your Discord Username">
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" placeholder="Support Inquiry">
+
+            <label for="emailBody">Message:</label>
+            <textarea id="emailBody" placeholder="Type your message here..."></textarea>
+
+            <button type="button" onclick="sendEmail()">Send Email</button>
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+
+    <script>
+        function sendEmail() {
+            var discordTag = document.getElementById('discordTag').value;
+            var subject = document.getElementById('subject').value;
+            var emailAddress = 'KongerHub@gmail.com';
+            var emailSubject = 'KongerHub Support - ' + subject;
+            var body = 'Discord Tag: ' + discordTag + '\nSubject: ' + subject + '\n\n' + document.getElementById('emailBody').value;
+
+            var mailtoLink = 'mailto:' + emailAddress + '?subject=' + encodeURIComponent(emailSubject) + '&body=' + encodeURIComponent(body);
+
+            window.location.href = mailtoLink;
+        }
+    </script>
+
+</body>
+</html>
