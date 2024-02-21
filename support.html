@@ -98,7 +98,7 @@
         <p>Feel free to send us an email if you're experiencing issues or just have any questions!</p>
 
         <form>
-            <label for="discordTag">Discord Tag:</label>
+            <label for="discordTag">Discord Username:</label>
             <input type="text" id="discordTag" placeholder="Your Discord Username">
 
             <label for="subject">Subject:</label>
@@ -118,7 +118,7 @@
             var subject = document.getElementById('subject').value;
             var emailAddress = 'KongerHub@gmail.com';
             var emailSubject = 'KongerHub Support - ' + subject;
-            var body = 'Discord Tag: ' + discordTag + '\nSubject: ' + subject + '\n\n' + document.getElementById('emailBody').value;
+            var body = 'Discord Username: ' + discordTag + '\nSubject: ' + subject + '\n\n' + document.getElementById('emailBody').value;
 
             var mailtoLink = 'mailto:' + emailAddress + '?subject=' + encodeURIComponent(emailSubject) + '&body=' + encodeURIComponent(body);
 
