@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title style="color: white;">raisincain poopie fart</title>
+  <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/1213608799219224626/1214335782362546206/icons8-discord-50.png?ex=65f8bd53&is=65e64853&hm=4baa664894419b251da95432849a3c983a28e7a72521436f45c1266444d67181&">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #36393e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      width: 300px;
+      padding: 20px;
+      background-color: #2e3035;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      font-size: 28px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #36393e;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #5865F2;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #5865F2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>discord webhook sender</h1>
+
+    <form id="webhookForm">
+      <label for="webhookUrl">discord webhook url:</label>
+      <input type="text" id="webhookUrl" name="webhookUrl" required>
+
+      <label for="requestBody">what it says:</label>
+      <textarea id="requestBody" name="requestBody" rows="4" required></textarea>
+
+      <button type="button" onclick="sendWebhook()">send</button>
+    </form>
+  </div>
+
+  <script>
+    function isValidDiscordWebhook(url) {
+      return url.startsWith("https://discord.com/api/webhooks/");
+    }
+
+    function sendWebhook() {
+      var webhookUrl = document.getElementById('webhookUrl').value;
+      var requestBody = document.getElementById('requestBody').value;
+
+      if (!webhookUrl || !isValidDiscordWebhook(webhookUrl)) {
+        alert('sorry bud, that url wont work');
+        return;
+      }
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', webhookUrl, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+        }
+      };
+
+      xhr.send(JSON.stringify({ content: requestBody }));
+    }
+  </script>
+
+</body>
+</html>
